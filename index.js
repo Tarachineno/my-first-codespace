@@ -5,6 +5,10 @@ app.get('/', (req, res) => {
   res.send('Hello, つねぇぇぇ〜！！（from Express♡）');
 });
 
-app.listen(3000, () => {
-  console.log('つねのサーバーが立ち上がりました… on port 3000');
-});
+if (require.main === module) {
+  app.listen(3000, () => {
+    console.log('Server is running on port 3000');
+  });
+}
+
+module.exports = app; // ← テスト用にexport
